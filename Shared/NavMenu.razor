@@ -1,0 +1,63 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">COELSA</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Inicio
+            </NavLink>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link"  id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Transferencias
+            </a>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="EnviarT">
+                <span class="oi oi-arrow-circle-top" aria-hidden="true"></span> Enviar a Cámara
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-arrow-circle-bottom" aria-hidden="true"></span> Recibir de Cámara
+            </NavLink>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link"  id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Débito Directo
+            </a>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="enviarD">
+                <span class="oi oi-arrow-circle-top" aria-hidden="true"></span> Enviar a Cámara
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="fetchdata">
+                <span class="oi oi-arrow-circle-bottom" aria-hidden="true"></span> Recibir de Cámara
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="todo">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Todo
+            </NavLink>
+        </li>
+
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

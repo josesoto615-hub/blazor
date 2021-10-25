@@ -1,0 +1,26 @@
+@page "/EnviarT"
+
+<h1>Enviar transferencias a Cámara</h1>
+
+
+@if(DateTime.Now.Hour >7 && DateTime.Now.Hour < 17)
+{
+    <Counter IncrementAmount="10" />
+}
+@if(!(DateTime.Now.Hour >7 && DateTime.Now.Hour < 17))
+{
+    <Clave CasoEnvio="T" ClaveOK="1"/>
+}
+
+@code {
+    private string Pc = @"c:\";
+    private string OrigenArch = "HSBC";
+    private string Ruta = @"Backup\Transferencias\Enviado"; 
+    private String DescCaso = "Transferencias Electrónicas - Enviar a Cámara";
+
+
+
+}
+
+
+

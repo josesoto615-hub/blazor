@@ -1,0 +1,18 @@
+@page "/EnviarD"
+
+<h1>Enviar Débito Directo a Cámara</h1>
+
+
+
+@if(DateTime.Now.Hour >7 && DateTime.Now.Hour < 17)
+{
+    <Clave CasoEnvio="D" ClaveOK="1"/>
+}    
+@if(!(DateTime.Now.Hour >7 && DateTime.Now.Hour < 17))
+{
+    <Clave CasoEnvio="D" ClaveOK="0"/>
+}
+
+
+
+

@@ -1,0 +1,69 @@
+@page "/clave"
+@inject NavigationManager NavigationManager
+
+@if(ClaveOK==0 && TextoClave!="VIRUS")
+{
+    <div id="divClave">
+        <h1>Clave</h1>
+        <p>Caso enviar igual a: </p>
+        <p>La operación no puede ser realizada. No se encuentra en un horario válido.</p>
+        <p>Si desea realizar la operación, ingrese contraseña.</p>
+
+        &nbsp;
+        &nbsp;
+        <p><input @bind="TextoClave"/></p>
+        &nbsp;
+        <p>TExtoClave: @TextoClave</p>
+        <button class="btn btn-primary" @onclick="AceptarClave">Aceptar</button>
+        <button class="btn btn-danger" @onclick="CancelarClave">Cancelar</button>
+
+    </div>
+
+}
+else
+{
+    <div id="divArchivo" > 
+        <h1>Archivo</h1>
+        <p>Enviando archivo a cámara. </p>
+
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <button class="btn btn-primary" @onclick="AceptarArchivo">Aceptar</button>
+        <button class="btn btn-danger" @onclick="CancelarArchivo">Cancelar</button>
+    
+    </div>   
+}
+
+@code
+{
+    [Parameter]
+    public string CasoEnvio { get; set; } = "";
+
+    [Parameter]
+    public int ClaveOK { get; set; } = 0;
+    private string TextoClave { get; set; } = "";
+
+    public int ArchivoOK { get; set; } = 0;
+    private void AceptarClave()
+    {
+        TextoClave = TextoClave.ToUpper();
+        ClaveOK = 1;
+       
+    }
+    private void CancelarClave()
+    {
+        ClaveOK = 0;
+        NavigationManager.NavigateTo("");
+    }
+    private void AceptarArchivo()
+    {
+       ArchivoOK = 1;
+    }
+    private void CancelarArchivo()
+    {
+        ArchivoOK = 0;
+        NavigationManager.NavigateTo("");
+    }
+
+}
